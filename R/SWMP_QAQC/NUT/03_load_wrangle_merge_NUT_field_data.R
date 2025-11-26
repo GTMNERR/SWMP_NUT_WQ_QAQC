@@ -36,7 +36,7 @@ mysheets_fromexcel
 tempdf <- readxl::read_xlsx(here::here('data', 
                                        '2025',
                                        '2025_FIELDDATA.xlsx'), # this is where you'd want to rename the file
-                            sheet = "August") %>% 
+                            sheet = "October") %>% 
   janitor::clean_names()
 
 # merge all the lists into one tibble using dplyr::bind_rows()
@@ -102,7 +102,7 @@ env_wide <- env_wide_result %>%
                 WTEM_B, F_WTEM_B,
                 SpCond_B, F_SpCond_B,
                 pH_B, F_pH_B,
-                #DO_G_B, F_DO_G_B,
+                DO_G_B, F_DO_G_B,
                 SALT_B, F_SALT_B,
                 DO_B, F_DO_B)
 
@@ -114,7 +114,7 @@ swmp_field <- env_wide %>%
   dplyr::select(station_code, fullstationname, datetimestamp, monitoringprogram, rep,
                 WTEM_B, F_WTEM_B,
                 SALT_B, F_SALT_B,
-                # DO_G_B, F_DO_G_B,
+                DO_G_B, F_DO_G_B,
                 DO_B, F_DO_B,
                 pH_B, F_pH_B,
                 SECCHI, F_SECCHI

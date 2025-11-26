@@ -168,7 +168,7 @@ lims_wide_final <- as.data.frame(lims_wide_final)
 # file exports as .csv 
 # when imported into Excel it reformats the columns to numbers 
 #  and the date columns as dates
-write.csv(lims_wide_final, here::here('output', 'nut', 'data', 'lims_wide_Aug2025.csv'), row.names = FALSE)
+write.csv(lims_wide_final, here::here('output', 'nut', 'data', 'lims_wide_Oct2025.csv'), row.names = FALSE)
 
 # write Excel file (if needed)
 # careful, if running this code twice in the same day, you will get a warning that a sheet of that name already exists.
