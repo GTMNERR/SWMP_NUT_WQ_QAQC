@@ -36,7 +36,7 @@ mysheets_fromexcel
 tempdf <- readxl::read_xlsx(here::here('data', 
                                        '2025',
                                        '2025_FIELDDATA.xlsx'), # this is where you'd want to rename the file
-                            sheet = "October") %>% 
+                            sheet = "November") %>% 
   janitor::clean_names()
 
 # merge all the lists into one tibble using dplyr::bind_rows()
@@ -145,7 +145,7 @@ CDMO_format <- lims_wide_final %>% left_join(swmp_field, by = c("station_code", 
 # 04 reorder merged dataframe so it matches CDMO format in new dataframe
 CDMO_format_Final <- CDMO_format %>% 
   dplyr::select(1:5, # reorder everything, 1:5 are the station code, etc. columns. Second number is one more than the total number of columns i.e. number of data columns +1
-                F_Record,
+               # F_Record,
                 PO4F,
                 F_PO4F,
                 TP,

@@ -58,7 +58,7 @@ stationCodes <- lims2 %>%
 
 # uncomment, run and modify if there are added analytes or misspellings that need to be removed
 lims2 <- lims2 %>%
-  dplyr::filter(station_code != "_dup") #& station_code != "disystemcheck1" & station_code != "disystemcheck2" & station_code != "disystemcheck3") #this may have to be changed to fieldblank (no spaces)
+  dplyr::filter(station_code != "-dup") #& station_code != "disystemcheck1" & station_code != "disystemcheck2" & station_code != "disystemcheck3") #this may have to be changed to fieldblank (no spaces)
 
 # uncomment, run to double check field IDs/station code (again)
 stationCodes2 <- lims2 %>%
@@ -66,7 +66,7 @@ stationCodes2 <- lims2 %>%
 
 # replace duplicate name with no name from end of 1.2 samples
 lims2<-lims2 %>% 
-  dplyr::mutate(across(.cols = 4, str_replace_all, pattern = fixed("_dup"), ""))# remove spaces in between station_codes to make them all the same
+  dplyr::mutate(across(.cols = 4, str_replace_all, pattern = fixed("-dup"), ""))# remove spaces in between station_codes to make them all the same
 
 # replace dash in station_code
 lims2<-lims2 %>% 
