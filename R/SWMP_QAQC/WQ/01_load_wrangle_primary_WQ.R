@@ -96,25 +96,25 @@ PC2 <- PC %>%
 ## change Date column from character to date
 ## filter for quarterly timeframe
 
-PI3<-PI2 %>%
+PI3<-PI %>%
   dplyr::mutate(Date = as.Date(Date, format = "%m/%d/%Y")) %>%
         arrange(Date) %>%
-        filter(between(Date, as.Date('2025-07-01'), as.Date('2025-09-30'))) #change these dates each quarter
+        filter(between(Date, as.Date('2025-10-01'), as.Date('2026-01-01'))) #change these dates each quarter
 
-SS3<-SS2 %>%
+SS3<-SS %>%
   dplyr::mutate(Date = as.Date(Date, format = "%m/%d/%Y")) %>%
         arrange(Date) %>%
-        filter(between(Date, as.Date('2025-07-01'), as.Date('2025-09-30'))) #change these dates each quarter
+        filter(between(Date, as.Date('2025-10-01'), as.Date('2026-01-01'))) #change these dates each quarter
 
-FM3<-FM2 %>%
+FM3<-FM %>%
   dplyr::mutate(Date = as.Date(Date, format = "%m/%d/%Y")) %>%
         arrange(Date) %>%
-        filter(between(Date, as.Date('2025-07-01'), as.Date('2025-09-30'))) #change these dates each quarter
+        filter(between(Date, as.Date('2025-10-01'), as.Date('2026-01-01'))) #change these dates each quarter
 
-PC3<-PC2 %>%
+PC3<-PC %>%
   dplyr::mutate(Date = as.Date(Date, format = "%m/%d/%Y")) %>%
         arrange(Date) %>%
-        filter(between(Date, as.Date('2025-07-01'), as.Date('2025-09-30'))) #change these dates each quarter
+        filter(between(Date, as.Date('2025-10-01'), as.Date('2026-01-01'))) #change these dates each quarter
 
 # remove the NAs that will come through on file export
 PI3[is.na(PI3)] <- ""
@@ -176,12 +176,12 @@ PC_noFlags <- PC3 %>%
 # PIapr <- PI_noFlags[months(PI_noFlags$Date) %in% month.name[4],]
 # PImay <- PI_noFlags[months(PI_noFlags$Date) %in% month.name[5],]
 # PIjun <- PI_noFlags[months(PI_noFlags$Date) %in% month.name[6],]
-PIjuly <- PI_noFlags[months(PI_noFlags$Date) %in% month.name[7],]
-PIaug <- PI_noFlags[months(PI_noFlags$Date) %in% month.name[8],]
-PIsept <- PI_noFlags[months(PI_noFlags$Date) %in% month.name[9],]
-# PIoct <- PI_noFlags[months(PI_noFlags$Date) %in% month.name[10],]
-# PInov <- PI_noFlags[months(PI_noFlags$Date) %in% month.name[11],]
-# PIdec <- PI_noFlags[months(PI_noFlags$Date) %in% month.name[12],]
+# PIjuly <- PI_noFlags[months(PI_noFlags$Date) %in% month.name[7],]
+# PIaug <- PI_noFlags[months(PI_noFlags$Date) %in% month.name[8],]
+# PIsept <- PI_noFlags[months(PI_noFlags$Date) %in% month.name[9],]
+PIoct <- PI_noFlags[months(PI_noFlags$Date) %in% month.name[10],]
+PInov <- PI_noFlags[months(PI_noFlags$Date) %in% month.name[11],]
+PIdec <- PI_noFlags[months(PI_noFlags$Date) %in% month.name[12],]
 
 # SSjan <- SS_noFlags[months(SS_noFlags$Date) %in% month.name[1],]
 # SSfeb <- SS_noFlags[months(SS_noFlags$Date) %in% month.name[2],]
@@ -189,12 +189,12 @@ PIsept <- PI_noFlags[months(PI_noFlags$Date) %in% month.name[9],]
 # SSapr <- SS_noFlags[months(SS_noFlags$Date) %in% month.name[4],]
 # SSmay <- SS_noFlags[months(SS_noFlags$Date) %in% month.name[5],]
 # SSjun <- SS_noFlags[months(SS_noFlags$Date) %in% month.name[6],]
-SSjuly <- SS_noFlags[months(SS_noFlags$Date) %in% month.name[7],]
-SSaug <- SS_noFlags[months(SS_noFlags$Date) %in% month.name[8],]
-SSsept <- SS_noFlags[months(SS_noFlags$Date) %in% month.name[9],]
-# SSoct <- SS_noFlags[months(SS_noFlags$Date) %in% month.name[10],]
-# SSnov <- SS_noFlags[months(SS_noFlags$Date) %in% month.name[11],]
-# SSdec <- SS_noFlags[months(SS_noFlags$Date) %in% month.name[12],]
+# SSjuly <- SS_noFlags[months(SS_noFlags$Date) %in% month.name[7],]
+# SSaug <- SS_noFlags[months(SS_noFlags$Date) %in% month.name[8],]
+# SSsept <- SS_noFlags[months(SS_noFlags$Date) %in% month.name[9],]
+SSoct <- SS_noFlags[months(SS_noFlags$Date) %in% month.name[10],]
+SSnov <- SS_noFlags[months(SS_noFlags$Date) %in% month.name[11],]
+SSdec <- SS_noFlags[months(SS_noFlags$Date) %in% month.name[12],]
 
 # FMjan <- FM_noFlags[months(FM_noFlags$Date) %in% month.name[1],]
 # FMfeb <- FM_noFlags[months(FM_noFlags$Date) %in% month.name[2],]
@@ -202,12 +202,12 @@ SSsept <- SS_noFlags[months(SS_noFlags$Date) %in% month.name[9],]
 # FMapr <- FM_noFlags[months(FM_noFlags$Date) %in% month.name[4],]
 # FMmay <- FM_noFlags[months(FM_noFlags$Date) %in% month.name[5],]
 # FMjun <- FM_noFlags[months(FM_noFlags$Date) %in% month.name[6],]
-FMjuly <- FM_noFlags[months(FM_noFlags$Date) %in% month.name[7],]
-FMaug <- FM_noFlags[months(FM_noFlags$Date) %in% month.name[8],]
-FMsept <- FM_noFlags[months(FM_noFlags$Date) %in% month.name[9],]
-# FMoct <- FM_noFlags[months(FM_noFlags$Date) %in% month.name[10],]
-# FMnov <- FM_noFlags[months(FM_noFlags$Date) %in% month.name[11],]
-# FMdec <- FM_noFlags[months(FM_noFlags$Date) %in% month.name[12],]
+# FMjuly <- FM_noFlags[months(FM_noFlags$Date) %in% month.name[7],]
+# FMaug <- FM_noFlags[months(FM_noFlags$Date) %in% month.name[8],]
+# FMsept <- FM_noFlags[months(FM_noFlags$Date) %in% month.name[9],]
+FMoct <- FM_noFlags[months(FM_noFlags$Date) %in% month.name[10],]
+FMnov <- FM_noFlags[months(FM_noFlags$Date) %in% month.name[11],]
+FMdec <- FM_noFlags[months(FM_noFlags$Date) %in% month.name[12],]
 
 # PCjan <- PC_noFlags[months(PC_noFlags$Date) %in% month.name[1],]
 # PCfeb <- PC_noFlags[months(PC_noFlags$Date) %in% month.name[2],]
@@ -215,12 +215,12 @@ FMsept <- FM_noFlags[months(FM_noFlags$Date) %in% month.name[9],]
 # PCapr <- PC_noFlags[months(PC_noFlags$Date) %in% month.name[4],]
 # PCmay <- PC_noFlags[months(PC_noFlags$Date) %in% month.name[5],]
 # PCjun <- PC_noFlags[months(PC_noFlags$Date) %in% month.name[6],]
-PCjuly <- PC_noFlags[months(PC_noFlags$Date) %in% month.name[7],]
-PCaug <- PC_noFlags[months(PC_noFlags$Date) %in% month.name[8],]
-PCsept <- PC_noFlags[months(PC_noFlags$Date) %in% month.name[9],]
-# PCoct <- PC_noFlags[months(PC_noFlags$Date) %in% month.name[10],]
-# PCnov <- PC_noFlags[months(PC_noFlags$Date) %in% month.name[11],]
-# PCdec <- PC_noFlags[months(PC_noFlags$Date) %in% month.name[12],]
+# PCjuly <- PC_noFlags[months(PC_noFlags$Date) %in% month.name[7],]
+# PCaug <- PC_noFlags[months(PC_noFlags$Date) %in% month.name[8],]
+# PCsept <- PC_noFlags[months(PC_noFlags$Date) %in% month.name[9],]
+PCoct <- PC_noFlags[months(PC_noFlags$Date) %in% month.name[10],]
+PCnov <- PC_noFlags[months(PC_noFlags$Date) %in% month.name[11],]
+PCdec <- PC_noFlags[months(PC_noFlags$Date) %in% month.name[12],]
 
 ## 05 Output quarterly csv. Uncomment needed quarter ---------------------------
 
@@ -256,37 +256,37 @@ PCsept <- PC_noFlags[months(PC_noFlags$Date) %in% month.name[9],]
 # write.csv(PC_cdmoFormat, here::here('output', 'data', 'wq', 'quarterly','gtmpcwqQ2_cdmoFormat.csv'), row.names = FALSE)
 # write.csv(PC_noFlags, here::here('output', 'data', 'wq', 'quarterly', 'gtmpcwqQ2_noFlags.csv'), row.names = FALSE)
 
-write.csv(PI3, here::here('output', 'wq', 'data', 'quarterly', 'gtmpiwqQ3_allParameters.csv'), row.names = FALSE)
-write.csv(PI_cdmoFormat, here::here('output', 'wq', 'data', 'quarterly', 'gtmpiwqQ3_cdmoFormat.csv'), row.names = FALSE)
-write.csv(PI_noFlags, here::here('output', 'wq', 'data', 'quarterly', 'gtmpiwqQ3_noFlags.csv'), row.names = FALSE)
-
-write.csv(SS3, here::here('output', 'wq', 'data', 'quarterly', 'gtmsswqQ3_allParameters.csv'), row.names = FALSE)
-write.csv(SS_cdmoFormat, here::here('output', 'wq', 'data', 'quarterly', 'gtmsswqQ3_cdmoFormat.csv'), row.names = FALSE)
-write.csv(SS_noFlags, here::here('output', 'wq', 'data', 'quarterly', 'gtmsswqQ3_noFlags.csv'), row.names = FALSE)
-
-write.csv(FM3, here::here('output', 'wq', 'data', 'quarterly', 'gtmfmwqQ3_allParameters.csv'), row.names = FALSE)
-write.csv(FM_cdmoFormat, here::here('output', 'wq', 'data', 'quarterly', 'gtmfmwqQ3_cdmoFormat.csv'), row.names = FALSE)
-write.csv(FM_noFlags, here::here('output', 'wq', 'data', 'quarterly', 'gtmfmwqQ3_noFlags.csv'), row.names = FALSE)
-
-write.csv(PC3, here::here('output', 'wq', 'data', 'quarterly', 'gtmpcwqQ3_allParameters.csv'), row.names = FALSE)
-write.csv(PC_cdmoFormat, here::here('output', 'wq', 'data', 'quarterly', 'gtmpcwqQ3_cdmoFormat.csv'), row.names = FALSE)
-write.csv(PC_noFlags, here::here('output', 'wq', 'data', 'quarterly', 'gtmpcwqQ3_noFlags.csv'), row.names = FALSE)
-
-# write.csv(PI3, here::here('output', 'wq', 'data', 'quarterly', 'gtmpiwqQ4_allParameters.csv'), row.names = FALSE)
-# write.csv(PI_cdmoFormat, here::here('output', 'wq', 'data', 'quarterly', 'gtmpiwqQ4_cdmoFormat.csv'), row.names = FALSE)
-# write.csv(PI_noFlags, here::here('output', 'wq', 'data', 'quarterly', 'gtmpiwqQ4_noFlags.csv'), row.names = FALSE)
+# write.csv(PI3, here::here('output', 'wq', 'data', 'quarterly', 'gtmpiwqQ3_allParameters.csv'), row.names = FALSE)
+# write.csv(PI_cdmoFormat, here::here('output', 'wq', 'data', 'quarterly', 'gtmpiwqQ3_cdmoFormat.csv'), row.names = FALSE)
+# write.csv(PI_noFlags, here::here('output', 'wq', 'data', 'quarterly', 'gtmpiwqQ3_noFlags.csv'), row.names = FALSE)
 # 
-# write.csv(SS3, here::here('output', 'wq', 'data', 'quarterly', 'gtmsswqQ4_allParameters.csv'), row.names = FALSE)
-# write.csv(SS_cdmoFormat, here::here('output', 'wq', 'data', 'quarterly', 'gtmsswqQ4_cdmoFormat.csv'), row.names = FALSE)
-# write.csv(SS_noFlags, here::here('output', 'wq', 'data', 'quarterly', 'gtmsswqQ4_noFlags.csv'), row.names = FALSE)
+# write.csv(SS3, here::here('output', 'wq', 'data', 'quarterly', 'gtmsswqQ3_allParameters.csv'), row.names = FALSE)
+# write.csv(SS_cdmoFormat, here::here('output', 'wq', 'data', 'quarterly', 'gtmsswqQ3_cdmoFormat.csv'), row.names = FALSE)
+# write.csv(SS_noFlags, here::here('output', 'wq', 'data', 'quarterly', 'gtmsswqQ3_noFlags.csv'), row.names = FALSE)
 # 
-# write.csv(FM3, here::here('output', 'wq', 'data', 'quarterly', 'gtmfmwqQ4_allParameters.csv'), row.names = FALSE)
-# write.csv(FM_cdmoFormat, here::here('output', 'wq', 'data', 'quarterly', 'gtmfmwqQ4_cdmoFormat.csv'), row.names = FALSE)
-# write.csv(FM_noFlags, here::here('output', 'wq', 'data', 'quarterly', 'gtmfmwqQ4_noFlags.csv'), row.names = FALSE)
+# write.csv(FM3, here::here('output', 'wq', 'data', 'quarterly', 'gtmfmwqQ3_allParameters.csv'), row.names = FALSE)
+# write.csv(FM_cdmoFormat, here::here('output', 'wq', 'data', 'quarterly', 'gtmfmwqQ3_cdmoFormat.csv'), row.names = FALSE)
+# write.csv(FM_noFlags, here::here('output', 'wq', 'data', 'quarterly', 'gtmfmwqQ3_noFlags.csv'), row.names = FALSE)
 # 
-# write.csv(PC3, here::here('output', 'wq', 'data', 'quarterly', 'gtmpcwqQ4_allParameters.csv'), row.names = FALSE)
-# write.csv(PC_cdmoFormat, here::here('output', 'wq', 'data', 'quarterly', 'gtmpcwqQ4_cdmoFormat.csv'), row.names = FALSE)
-# write.csv(PC_noFlags, here::here('output', 'wq', 'data', 'quarterly', 'gtmpcwqQ4_noFlags.csv'), row.names = FALSE)
+# write.csv(PC3, here::here('output', 'wq', 'data', 'quarterly', 'gtmpcwqQ3_allParameters.csv'), row.names = FALSE)
+# write.csv(PC_cdmoFormat, here::here('output', 'wq', 'data', 'quarterly', 'gtmpcwqQ3_cdmoFormat.csv'), row.names = FALSE)
+# write.csv(PC_noFlags, here::here('output', 'wq', 'data', 'quarterly', 'gtmpcwqQ3_noFlags.csv'), row.names = FALSE)
+
+write.csv(PI3, here::here('output', 'wq', 'data', 'quarterly', 'gtmpiwqQ4_allParameters.csv'), row.names = FALSE)
+write.csv(PI_cdmoFormat, here::here('output', 'wq', 'data', 'quarterly', 'gtmpiwqQ4_cdmoFormat.csv'), row.names = FALSE)
+write.csv(PI_noFlags, here::here('output', 'wq', 'data', 'quarterly', 'gtmpiwqQ4_noFlags.csv'), row.names = FALSE)
+
+write.csv(SS3, here::here('output', 'wq', 'data', 'quarterly', 'gtmsswqQ4_allParameters.csv'), row.names = FALSE)
+write.csv(SS_cdmoFormat, here::here('output', 'wq', 'data', 'quarterly', 'gtmsswqQ4_cdmoFormat.csv'), row.names = FALSE)
+write.csv(SS_noFlags, here::here('output', 'wq', 'data', 'quarterly', 'gtmsswqQ4_noFlags.csv'), row.names = FALSE)
+
+write.csv(FM3, here::here('output', 'wq', 'data', 'quarterly', 'gtmfmwqQ4_allParameters.csv'), row.names = FALSE)
+write.csv(FM_cdmoFormat, here::here('output', 'wq', 'data', 'quarterly', 'gtmfmwqQ4_cdmoFormat.csv'), row.names = FALSE)
+write.csv(FM_noFlags, here::here('output', 'wq', 'data', 'quarterly', 'gtmfmwqQ4_noFlags.csv'), row.names = FALSE)
+
+write.csv(PC3, here::here('output', 'wq', 'data', 'quarterly', 'gtmpcwqQ4_allParameters.csv'), row.names = FALSE)
+write.csv(PC_cdmoFormat, here::here('output', 'wq', 'data', 'quarterly', 'gtmpcwqQ4_cdmoFormat.csv'), row.names = FALSE)
+write.csv(PC_noFlags, here::here('output', 'wq', 'data', 'quarterly', 'gtmpcwqQ4_noFlags.csv'), row.names = FALSE)
 
 ## 06 Output monthly csv files. Uncomment need monthly files --------------------
 
@@ -322,34 +322,34 @@ write.csv(PC_noFlags, here::here('output', 'wq', 'data', 'quarterly', 'gtmpcwqQ3
 # write.csv(PCmay, here::here('output', 'wq', 'data', 'monthly', 'PCMay2025.csv'), row.names = FALSE)
 # write.csv(PCjun, here::here('output', 'wq', 'data', 'monthly', 'PCJun2025.csv'), row.names = FALSE)
 
-write.csv(PIjuly, here::here('output', 'wq', 'data', 'monthly', 'PIJuly2025.csv'), row.names = FALSE)
-write.csv(PIaug, here::here('output', 'wq', 'data', 'monthly', 'PIAug2025.csv'), row.names = FALSE)
-write.csv(PIsept, here::here('output', 'wq', 'data', 'monthly', 'PISept2025.csv'), row.names = FALSE)
+# write.csv(PIjuly, here::here('output', 'wq', 'data', 'monthly', 'PIJuly2025.csv'), row.names = FALSE)
+# write.csv(PIaug, here::here('output', 'wq', 'data', 'monthly', 'PIAug2025.csv'), row.names = FALSE)
+# write.csv(PIsept, here::here('output', 'wq', 'data', 'monthly', 'PISept2025.csv'), row.names = FALSE)
+# #
+# write.csv(SSjuly, here::here('output', 'wq', 'data', 'monthly', 'SSJuly2025.csv'), row.names = FALSE)
+# write.csv(SSaug, here::here('output', 'wq', 'data', 'monthly', 'SSAug2025.csv'), row.names = FALSE)
+# write.csv(SSsept, here::here('output', 'wq', 'data', 'monthly', 'SSSept2025.csv'), row.names = FALSE)
+# #
+# write.csv(FMjuly, here::here('output', 'wq', 'data', 'monthly', 'FMJuly2025.csv'), row.names = FALSE)
+# write.csv(FMaug, here::here('output', 'wq', 'data', 'monthly', 'FMAug2025.csv'), row.names = FALSE)
+# write.csv(FMsept, here::here('output', 'wq', 'data', 'monthly', 'FMSept2025.csv'), row.names = FALSE)
+# #
+# write.csv(PCjuly, here::here('output', 'wq', 'data', 'monthly', 'PCJuly2025.csv'), row.names = FALSE)
+# write.csv(PCaug, here::here('output', 'wq', 'data', 'monthly', 'PCAug2025.csv'), row.names = FALSE)
+# write.csv(PCsept, here::here('output', 'wq', 'data', 'monthly', 'PCSept2025.csv'), row.names = FALSE)
 #
-write.csv(SSjuly, here::here('output', 'wq', 'data', 'monthly', 'SSJuly2025.csv'), row.names = FALSE)
-write.csv(SSaug, here::here('output', 'wq', 'data', 'monthly', 'SSAug2025.csv'), row.names = FALSE)
-write.csv(SSsept, here::here('output', 'wq', 'data', 'monthly', 'SSSept2025.csv'), row.names = FALSE)
-#
-write.csv(FMjuly, here::here('output', 'wq', 'data', 'monthly', 'FMJuly2025.csv'), row.names = FALSE)
-write.csv(FMaug, here::here('output', 'wq', 'data', 'monthly', 'FMAug2025.csv'), row.names = FALSE)
-write.csv(FMsept, here::here('output', 'wq', 'data', 'monthly', 'FMSept2025.csv'), row.names = FALSE)
-#
-write.csv(PCjuly, here::here('output', 'wq', 'data', 'monthly', 'PCJuly2025.csv'), row.names = FALSE)
-write.csv(PCaug, here::here('output', 'wq', 'data', 'monthly', 'PCAug2025.csv'), row.names = FALSE)
-write.csv(PCsept, here::here('output', 'wq', 'data', 'monthly', 'PCSept2025.csv'), row.names = FALSE)
-#
-# write.csv(PIoct, here::here('output', 'wq', 'data', 'monthly', 'PIOct2024.csv'), row.names = FALSE)
-# write.csv(PInov, here::here('output', 'wq', 'data', 'monthly', 'PINov2024.csv'), row.names = FALSE)
-# write.csv(PIdec, here::here('output', 'wq', 'data', 'monthly', 'PIDec2024.csv'), row.names = FALSE)
-# 
-# write.csv(SSoct, here::here('output', 'wq', 'data', 'monthly', 'SSOct2024.csv'), row.names = FALSE)
-# write.csv(SSnov, here::here('output', 'wq', 'data', 'monthly', 'SSNov2024.csv'), row.names = FALSE)
-# write.csv(SSdec, here::here('output', 'wq', 'data', 'monthly', 'SSDec2024.csv'), row.names = FALSE)
-# 
-# write.csv(FMoct, here::here('output', 'wq', 'data', 'monthly', 'FMOct2024.csv'), row.names = FALSE)
-# write.csv(FMnov, here::here('output', 'wq', 'data', 'monthly', 'FMNov2024.csv'), row.names = FALSE)
-# write.csv(FMdec, here::here('output', 'wq', 'data', 'monthly', 'FMDec2024.csv'), row.names = FALSE)
-# 
-# write.csv(PCoct, here::here('output', 'wq', 'data', 'monthly', 'PCOct2024.csv'), row.names = FALSE)
-# write.csv(PCnov, here::here('output', 'wq', 'data', 'monthly', 'PCNov2024.csv'), row.names = FALSE)
-# write.csv(PCdec, here::here('output', 'wq', 'data', 'monthly', 'PCDec2024.csv'), row.names = FALSE)
+write.csv(PIoct, here::here('output', 'wq', 'data', 'monthly', 'PIOct2025.csv'), row.names = FALSE)
+write.csv(PInov, here::here('output', 'wq', 'data', 'monthly', 'PINov2025.csv'), row.names = FALSE)
+write.csv(PIdec, here::here('output', 'wq', 'data', 'monthly', 'PIDec2025.csv'), row.names = FALSE)
+
+write.csv(SSoct, here::here('output', 'wq', 'data', 'monthly', 'SSOct2025.csv'), row.names = FALSE)
+write.csv(SSnov, here::here('output', 'wq', 'data', 'monthly', 'SSNov2025.csv'), row.names = FALSE)
+write.csv(SSdec, here::here('output', 'wq', 'data', 'monthly', 'SSDec2025.csv'), row.names = FALSE)
+
+write.csv(FMoct, here::here('output', 'wq', 'data', 'monthly', 'FMOct2025.csv'), row.names = FALSE)
+write.csv(FMnov, here::here('output', 'wq', 'data', 'monthly', 'FMNov2025.csv'), row.names = FALSE)
+write.csv(FMdec, here::here('output', 'wq', 'data', 'monthly', 'FMDec2025.csv'), row.names = FALSE)
+
+write.csv(PCoct, here::here('output', 'wq', 'data', 'monthly', 'PCOct2025.csv'), row.names = FALSE)
+write.csv(PCnov, here::here('output', 'wq', 'data', 'monthly', 'PCNov2025.csv'), row.names = FALSE)
+write.csv(PCdec, here::here('output', 'wq', 'data', 'monthly', 'PCDec2025.csv'), row.names = FALSE)

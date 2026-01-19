@@ -1,4 +1,4 @@
-DATE,TIME,F_Record,FILENAME,SITENAME,USERID,FAULTCODE,SpCond,F_SpCond,Sal,F_Sal,Depth,F_Depth,DO_pct,F_DO_pct,DO_mgl,F_DO_mgl,FDOMQSU,FDOMRFU,pH,F_pH,pHmV,BATTERY,Temp,F_Temp,Turb,F_Turb,WIPERPOSITIONVOLT,CHLOROPHYLLRFU,ChlFluor,F_ChlFluor
+Date,Time,F_Record,FILENAME,SITENAME,USERID,FAULTCODE,SpCond,F_SpCond,Sal,F_Sal,Depth,F_Depth,DO_pct,F_DO_pct,DO_mgl,F_DO_mgl,fDOMQSU,fDOMRFU,pH,F_pH,pHmV,BATTERY,Temp,F_Temp,Turb,F_Turb,WIPERPOSITIONVOLT,ChlorophyllRFU,ChlFluor,F_ChlFluor
 9/25/2025,12:00, ,gtmsswq_20H100466_092525_091500.bin,San Sebastian,default user,0,50.338,<0> (CND),32.89,<0> (CND),5.802,<0> (CND),96.4,<0> (CND),6.23,<0> (CND),10.82,3.58,8,<0> (CND),-85.2,6.15,28.556,<0> (CND),5.84,<0> (CND),1.189,1.56,6.41,<0> (CND)
 9/25/2025,12:15, ,gtmsswq_20H100466_092525_091500.bin,San Sebastian,default user,0,49.666,0,32.39,0,5.739,0,96.3,0,6.21,0,15.35,5.09,7.96,0,-83.2,6.16,28.868,0,6.52,0,1.182,1.48,6.09,0
 9/25/2025,12:30, ,gtmsswq_20H100466_092525_091500.bin,San Sebastian,default user,0,49.845,0,32.52,0,5.668,0,92.9,0,6,0,13.95,4.63,7.96,0,-83.2,6.16,28.625,0,4.98,0,1.189,1.28,5.27,0

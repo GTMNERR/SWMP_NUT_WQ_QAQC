@@ -39,10 +39,10 @@ dplyr::glimpse(dPC)
 # Select only the rows with deployment datestimes and sensor types. The ratio collects rows of wanted data - starts at row 1 and ends at row 16.
 # The last ratio number will change as the original data file grows with passing time.
 # The last ration number will also be one less than the total number of rows the data is in. Example: if the data ends at row 19 you will put 18 for the second ratio value
-dPI2 <- dplyr::slice(dPI, 1:16)
-dSS2 <- dplyr::slice(dSS, 1:16)
-dFM2 <- dplyr::slice(dFM, 1:16)
-dPC2 <- dplyr::slice(dPC, 1:22)
+dPI2 <- dplyr::slice(dPI, 1:19)
+dSS2 <- dplyr::slice(dSS, 1:19)
+dFM2 <- dplyr::slice(dFM, 1:19)
+dPC2 <- dplyr::slice(dPC, 1:27)
 
 # 02 merge columns
 dPI3 <- dPI2 %>%
