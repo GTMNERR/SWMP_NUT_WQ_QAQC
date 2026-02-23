@@ -12,9 +12,9 @@
 ## EDIT and/or REVIEW LIMS file prior to loading it
 ## correct all mistakes in the LIMS file
 ## if new parameters are added or removed the code will need to be edited
-## code is currently based on the 2025 LIMS file format
+## code is currently based on the 2026 LIMS file format
 lims <- readxl::read_xlsx(here::here('data', 
-                                     '2025',
+                                     '2026',
                                      'LIMS_Download.xlsx'), # this is where you'd want to rename the file
                           sheet = "BrowseReportPage") %>% 
   janitor::clean_names()

@@ -11,8 +11,8 @@ mysheets_fromexcel <- list()
 # Edit excel file name to match field data file
 # get the list of all the sheet names
 mysheetlist <- readxl::excel_sheets(path = here::here('data', 
-                                                      '2025',
-                                                      '2025_FIELDDATA.xlsx'))
+                                                      '2026',
+                                                      '2026_FIELDDATA.xlsx'))
 
 # Edit excel file name to match field data file name
 # create loop for the sheets
@@ -21,8 +21,8 @@ i = 1
 for (i in 1:length(mysheetlist)){
   
   tempdf <- readxl::read_excel(path = here::here('data', 
-                                                 '2025',
-                                                 '2025_FIELDDATA.xlsx'), 
+                                                 '2026',
+                                                 '2026_FIELDDATA.xlsx'), 
                                sheet = mysheetlist[i])
   
   tempdf$sheetname <- mysheetlist[i]
@@ -34,9 +34,9 @@ mysheets_fromexcel
 
 #Use this if you don't want to loop through all of the excel tabs. Change sheet to month of data you want
 tempdf <- readxl::read_xlsx(here::here('data', 
-                                       '2025',
-                                       '2025_FIELDDATA.xlsx'), # this is where you'd want to rename the file
-                            sheet = "November") %>% 
+                                       '2026',
+                                       '2026_FIELDDATA.xlsx'), # this is where you'd want to rename the file
+                            sheet = "January") %>% 
   janitor::clean_names()
 
 # merge all the lists into one tibble using dplyr::bind_rows()
@@ -126,8 +126,8 @@ swmp_field <- swmp_field %>%
          F_WTEM_N = F_WTEM_B,
          SALT_N = SALT_B,
          F_SALT_N = F_SALT_B,
-         # DO_N = DO_G_B, 
-         # F_DO_N = F_DO_G_B,
+         DO_N_ = DO_G_B, 
+         F_DO_N_ = F_DO_G_B,
          DO_N = DO_B, 
          F_DO_N = F_DO_B,
          PH_N = pH_B, 
@@ -182,6 +182,8 @@ CDMO_format_Final <- CDMO_format %>%
                 F_SALT_N,
                 DO_N,
                 F_DO_N,
+                DO_N_,
+                F_DO_N_,
                 PH_N,
                 F_PH_N,
                 SECCHI,
@@ -217,7 +219,7 @@ CDMO_format_Final <- as.data.frame(CDMO_format_Final)
 # careful, if running this code twice in the same day, you will get a warning 
 #  that a sheet of that name already exists. 
 # may need to delete sheet of same date if you ran into error
-write.csv(CDMO_format_Final, here::here('output', 'nut', 'data', 'gtmnut2025_wide.csv'), row.names = FALSE)
+write.csv(CDMO_format_Final, here::here('output', 'nut', 'data', 'gtmnut2026_wide.csv'), row.names = FALSE)
 
 # Output merged Excel file (if needed)
 # xlsx::write.xlsx(CDMO_format_Final, here::here('output', 'nut', 'data','gtmnut2023_wide.xlsx'),

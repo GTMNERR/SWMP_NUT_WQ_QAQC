@@ -153,10 +153,18 @@ lims_wide2 <- lims_wide %>%
 #       datetimestamp <= "2024-11-03" ~ datetimestamp - (1 * 60 * 60),     # When daylight savings ends
 #     TRUE ~ datetimestamp))
 
+#2025
 lims_wide_final <- lims_wide2 %>%
   mutate(adjustedtimestamp = case_when(
     datetimestamp >= "2025-03-09" &     # When daylight savings starts
       datetimestamp <= "2025-11-02" ~ datetimestamp - (1 * 60 * 60),     # When daylight savings ends
+    TRUE ~ datetimestamp))
+
+#2026
+lims_wide_final <- lims_wide2 %>%
+  mutate(adjustedtimestamp = case_when(
+    datetimestamp >= "2026-03-08" &     # When daylight savings starts
+      datetimestamp <= "2026-11-01" ~ datetimestamp - (1 * 60 * 60),     # When daylight savings ends
     TRUE ~ datetimestamp))
 
 # remove the NAs that will come through on file export
@@ -168,7 +176,7 @@ lims_wide_final <- as.data.frame(lims_wide_final)
 # file exports as .csv 
 # when imported into Excel it reformats the columns to numbers 
 #  and the date columns as dates
-write.csv(lims_wide_final, here::here('output', 'nut', 'data', 'lims_wide_Nov2025.csv'), row.names = FALSE)
+write.csv(lims_wide_final, here::here('output', 'nut', 'data', 'lims_wide_Jan2026.csv'), row.names = FALSE)
 
 # write Excel file (if needed)
 # careful, if running this code twice in the same day, you will get a warning that a sheet of that name already exists.
