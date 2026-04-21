@@ -145,7 +145,8 @@ tier2a<- holdTimes2 %>%
                 TP,
                 TDP, #Uncomment for >= 2022 
                 TKN,
-                TKNF)
+                TKNF,
+                TOTALK)
 
 # modify datetimestamp for each parameter to EST
 # reformat all analytes to display date only
@@ -231,7 +232,12 @@ tier2aFinal<- tier2a %>%
     TKNF >= "2026-03-08" & #When daylight savings starts
       TKNF <= "2026-11-01" ~ TKNF - (1 * 60 * 60), #When daylight savings ends
     TRUE ~ TKNF)) %>% 
-  mutate(TKNF = date(TKNF))
+  mutate(TKNF = date(TKNF)) %>%
+  mutate(TOTALK = date(TOTALK)) %>%
+  mutate(TOTALK = case_when(
+    TOTALK >= "2026-03-08" & #When daylight savings starts
+      TOTALK <= "2026-11-01" ~ TOTALK - (1 * 60 * 60), #When daylight savings ends
+    TRUE ~ TOTALK))
 
 # reorder output to match metadata document
 tier2b<- holdTimes2 %>% 
@@ -347,8 +353,6 @@ tier2bFinal<- tier2b %>%
       FECCOL_CFU <= "2026-11-01" ~ FECCOL_CFU - (1 * 60 * 60), #When daylight savings ends
     TRUE ~ FECCOL_CFU)) %>% 
   mutate(FECCOL_CFU = date(FECCOL_CFU))
-
-
 
 # Write as .csv files
 # KEEP as .csv. 

@@ -31,10 +31,10 @@ lims_wide <- lims_wide_results %>%
                   into = c("monitoringprogram", "rep"),
                   sep = "[.]") %>%
   dplyr::select(1, 105, 4, 2:3, 5:104) # may need to modify last number
-# this depends on number of analytes in data set
+# this depends on number of analytes in data set. Remember that the total number of columns becomes 2 less after they combine because of station_code and datetimestamp is in both dataframes but merge from 4 columns to 2
 
 # to look up column numbers for easier reordering used for `select()` above
-# data.frame(colnames(lims_wide))
+data.frame(colnames(lims_wide))
 # data.frame(colnames(lims_wide_results)). Reordering columns. Station Code =1, full station name = 101, datetime = 2, monitoring program = 2
 # rep = 3, Data starts in column 5 and data ends in column 100
 
@@ -62,21 +62,21 @@ rm(lims_wide_remarks, lims_wide_results)
 # make file the same parameters and order as the CDMO in-house qaqc file
 # add new parameters or uncomment parameters below
 lims_wide2 <- lims_wide %>%
-  dplyr::mutate(F_Record = '', 
-                IRR0_N = '',
-                F_IRR0_N = '',
-                IRR1_N = '',
-                F_IRR1_N = '',
-                Kd_N = '',
-                F_Kd_N = '',
+  dplyr::mutate(F_Record = '' 
+                # IRR0_N = '',
+                # F_IRR0_N = '',
+                # IRR1_N = '',
+                # F_IRR1_N = '',
+                # Kd_N = '',
+                # F_Kd_N = '',
                 # DOP = '',
                 # F_DOP = '',
                 # PHOSP	= '',
                 # F_PHOSP= '',
                 # PN = '',
                 # F_PN = '',
-                TURB_N = '',
-                F_TURB_N = '',
+                # TURB_N = '',
+                # F_TURB_N = '',
                 # DIN = '',
                 # F_DIN = '',
                 # TN = '',
@@ -100,7 +100,8 @@ lims_wide2 <- lims_wide %>%
                 # DO_N = '',
                 # F_DO_N = ''
   ) %>%
-  dplyr::select(1:5, 105, # reorder everything, 1:5 are the station code, etc. columns
+  dplyr::select(1:5, # reorder everything, 1:5 are the station code, etc. columns
+                F_Record,
                 PO4F, F_PO4F,
                 TP, F_TP,
                 TDP, F_TDP, #Uncomment for 2022+
@@ -112,7 +113,7 @@ lims_wide2 <- lims_wide %>%
                 UncCHLa_N, F_UncCHLa_N,
                 PHEA, F_PHEA,
                 TSS, F_TSS,
-                TURB_N, F_TURB_N,
+               # TURB_N, F_TURB_N,
                 color, F_color, #Uncomment for 2022+
                 FECCOL_CFU, F_FECCOL_CFU,
                 ENTERO_MPN, F_ENTERO_MPN,
@@ -122,9 +123,10 @@ lims_wide2 <- lims_wide %>%
                 # PH_N, F_PH_N,
                 # SECCHI,	F_SECCHI,
                 DOC, F_DOC,
-                IRR0_N,	F_IRR0_N,
-                IRR1_N,	F_IRR1_N,
-                Kd_N,	F_Kd_N,
+                TOTALK, F_TOTALK #Added in Nov 2025
+                # IRR0_N,	F_IRR0_N,
+                # IRR1_N,	F_IRR1_N,
+                # Kd_N,	F_Kd_N,
                 # DIN, F_DIN, # uncomment if you want calc parameters
                 # DON, F_DON,
                 # DOP, F_DOP,
@@ -176,7 +178,7 @@ lims_wide_final <- as.data.frame(lims_wide_final)
 # file exports as .csv 
 # when imported into Excel it reformats the columns to numbers 
 #  and the date columns as dates
-write.csv(lims_wide_final, here::here('output', 'nut', 'data', 'lims_wide_Jan2026.csv'), row.names = FALSE)
+write.csv(lims_wide_final, here::here('output', 'nut', 'data', 'lims_wide_2026.csv'), row.names = FALSE)
 
 # write Excel file (if needed)
 # careful, if running this code twice in the same day, you will get a warning that a sheet of that name already exists.

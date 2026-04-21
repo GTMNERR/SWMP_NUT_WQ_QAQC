@@ -24,9 +24,10 @@ dplyr::glimpse(lims)
 
 # load CDMO names file
 # prior to loading, add all new parameters to the componentnames file
+# added total alkalinity for 2025+ 
 names <- readxl::read_xlsx(here::here('data', 
-                                      '2024',
-                                      'componentnames_2024.xlsx')) %>%
+                                      '2026',
+                                      'componentnames_2026.xlsx')) %>%
   janitor::clean_names()
 
 # 02 wrangle-tidy data ------------------------------------------------------
@@ -58,7 +59,10 @@ stationCodes <- lims2 %>%
 
 # uncomment, run and modify if there are added analytes or misspellings that need to be removed
 lims2 <- lims2 %>%
-  dplyr::filter(station_code != "-dup") #& station_code != "disystemcheck1" & station_code != "disystemcheck2" & station_code != "disystemcheck3") #this may have to be changed to fieldblank (no spaces)
+  dplyr::filter(station_code != "diwater") # & station_code != "diwater") # & station_code != "disystemcheck3") #this may have to be changed to fieldblank (no spaces)
+
+lims2 <- lims2 %>%
+  dplyr::filter(station_code != "filtereq-blank") # & station_code != "disystemcheck3") #this may have to be changed to fieldblank (no spaces)
 
 # uncomment, run to double check field IDs/station code (again)
 stationCodes2 <- lims2 %>%
@@ -70,7 +74,15 @@ lims2<-lims2 %>%
 
 # replace dash in station_code
 lims2<-lims2 %>% 
+  dplyr::mutate(across(.cols = 4, str_replace_all, pattern = fixed("-dup."), ""))# remove spaces in between station_codes to make them all the same
+
+# replace dash in station_code
+lims2<-lims2 %>% 
   dplyr::mutate(across(.cols = 4, str_replace_all, pattern = fixed("dup"), ""))# remove spaces in between station_codes to make them all the same
+
+# replace dash in station_code
+lims2<-lims2 %>% 
+  dplyr::mutate(across(.cols = 4, str_replace_all, pattern = fixed("-"), ""))# remove spaces in between station_codes to make them all the same
 
 # Check to make sure the duplicate name was removed from station codes
 stationCodes3 <- lims2 %>%

@@ -6,7 +6,7 @@
 ## load lims_wide_final File
 ## this file should be in the 'data' folder
 lims <- read.csv(here::here('output', 'nut', 'data',
-                            'lims_wide_Jan2026.csv')) # this is where you'd want to rename the file
+                            'lims_wide_Feb2026.csv')) # this is where you'd want to rename the file
 # inspect the data
 dplyr::glimpse(lims)
 

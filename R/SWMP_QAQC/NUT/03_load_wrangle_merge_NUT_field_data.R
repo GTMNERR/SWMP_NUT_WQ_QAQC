@@ -36,7 +36,7 @@ mysheets_fromexcel
 tempdf <- readxl::read_xlsx(here::here('data', 
                                        '2026',
                                        '2026_FIELDDATA.xlsx'), # this is where you'd want to rename the file
-                            sheet = "January") %>% 
+                            sheet = "March") %>% 
   janitor::clean_names()
 
 # merge all the lists into one tibble using dplyr::bind_rows()
@@ -190,12 +190,14 @@ CDMO_format_Final <- CDMO_format %>%
                 F_SECCHI,
                 DOC,
                 F_DOC,
-                IRR0_N,
-                F_IRR0_N,
-                IRR1_N,
-                F_IRR1_N,
-                Kd_N,
-                F_Kd_N,
+                TOTALK, 
+                F_TOTALK,
+                # IRR0_N,
+                # F_IRR0_N,
+                # IRR1_N,
+                # F_IRR1_N,
+                # Kd_N,
+                # F_Kd_N,
                 adjustedtimestamp
   )
 
