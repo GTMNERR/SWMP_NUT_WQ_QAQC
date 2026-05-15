@@ -14,7 +14,7 @@
 ## if new parameters are added or removed the code will need to be edited
 ## code is currently based on the 2026 LIMS file format
 lims <- readxl::read_xlsx(here::here('data', 
-                                     '2026',
+                                     '2025',
                                      'LIMS_Download.xlsx'), # this is where you'd want to rename the file
                           sheet = "BrowseReportPage") %>% 
   janitor::clean_names()
@@ -83,6 +83,9 @@ lims2<-lims2 %>%
 # replace dash in station_code
 lims2<-lims2 %>% 
   dplyr::mutate(across(.cols = 4, str_replace_all, pattern = fixed("-"), ""))# remove spaces in between station_codes to make them all the same
+
+lims2<-lims2 %>% 
+  dplyr::mutate(across(.cols = 4, str_replace_all, pattern = fixed("_"), ""))# remove spaces in between station_codes to make them all the same
 
 # Check to make sure the duplicate name was removed from station codes
 stationCodes3 <- lims2 %>%

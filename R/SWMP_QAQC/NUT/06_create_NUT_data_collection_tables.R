@@ -6,7 +6,7 @@
 ## load lims_wide_final File
 ## this file should be in the 'data' folder
 lims <- read.csv(here::here('output', 'nut', 'data',
-                            'lims_wide_Feb2026.csv')) # this is where you'd want to rename the file
+                            'lims_wide_2025.csv')) # this is where you'd want to rename the file
 # inspect the data
 dplyr::glimpse(lims)
 
@@ -112,8 +112,8 @@ diel <- dielCombined %>%
 
 
 #04 Output tables--------------------------------------------------------------------------------------
-write.csv(PI_final, here::here('output', 'nut', 'metadata', 'PI_dataCollection_2026.csv'), row.names = FALSE)
-write.csv(SS_final, here::here('output', 'nut', 'metadata', 'SS_dataCollection_2026.csv'), row.names = FALSE)
-write.csv(FM_final, here::here('output', 'nut', 'metadata', 'FM_dataCollection_2026.csv'), row.names = FALSE)
-write.csv(PC_final, here::here('output', 'nut', 'metadata', 'PC_dataCollectionGrabs_2026.csv'), row.names = FALSE)
-write.csv(diel, here::here('output', 'nut', 'metadata', 'PC_dataCollectionDiel_2026.csv'), row.names = FALSE)
+write.csv(PI_final, here::here('output', 'nut', 'metadata', 'PI_dataCollection_2025.csv'), row.names = FALSE)
+write.csv(SS_final, here::here('output', 'nut', 'metadata', 'SS_dataCollection_2025.csv'), row.names = FALSE)
+write.csv(FM_final, here::here('output', 'nut', 'metadata', 'FM_dataCollection_2025.csv'), row.names = FALSE)
+write.csv(PC_final, here::here('output', 'nut', 'metadata', 'PC_dataCollectionGrabs_2025.csv'), row.names = FALSE)
+write.csv(diel, here::here('output', 'nut', 'metadata', 'PC_dataCollectionDiel_2025.csv'), row.names = FALSE)

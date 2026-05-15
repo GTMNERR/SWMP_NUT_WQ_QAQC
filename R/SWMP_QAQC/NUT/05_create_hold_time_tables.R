@@ -204,7 +204,12 @@ tier2aFinal<- tier2a %>%
     TKNF >= "2025-03-09" & #When daylight savings starts
       TKNF <= "2025-11-02" ~ TKNF - (1 * 60 * 60), #When daylight savings ends
     TRUE ~ TKNF)) %>% 
-  mutate(TKNF = date(TKNF))
+  mutate(TKNF = date(TKNF)) %>%
+  mutate(TOTALK = date(TOTALK)) %>%
+  mutate(TOTALK = case_when(
+    TOTALK >= "2025-03-09" & #When daylight savings starts
+      TOTALK <= "2025-11-02" ~ TOTALK - (1 * 60 * 60), #When daylight savings ends
+    TRUE ~ TOTALK))
 
 #2026
 tier2aFinal<- tier2a %>% 
@@ -357,6 +362,6 @@ tier2bFinal<- tier2b %>%
 # Write as .csv files
 # KEEP as .csv. 
 # If exported as Excel, it reformats the columns to numbers and the date columns as dates
-write.csv(tier1Final, here::here('output', 'nut', 'metadata', 'tier1_holdtimes_2026.csv'), row.names = FALSE)
-write.csv(tier2aFinal, here::here('output', 'nut', 'metadata', 'tier2a_holdtimes_2026.csv'), row.names = FALSE)
-write.csv(tier2bFinal, here::here('output', 'nut', 'metadata', 'tier2b_holdtimes_2026.csv'), row.names = FALSE)
+write.csv(tier1Final, here::here('output', 'nut', 'metadata', 'tier1_holdtimes_2025.csv'), row.names = FALSE)
+write.csv(tier2aFinal, here::here('output', 'nut', 'metadata', 'tier2a_holdtimes_2025.csv'), row.names = FALSE)
+write.csv(tier2bFinal, here::here('output', 'nut', 'metadata', 'tier2b_holdtimes_2025.csv'), row.names = FALSE)

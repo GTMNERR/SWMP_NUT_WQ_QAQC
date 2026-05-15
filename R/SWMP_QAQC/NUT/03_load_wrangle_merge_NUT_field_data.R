@@ -11,8 +11,8 @@ mysheets_fromexcel <- list()
 # Edit excel file name to match field data file
 # get the list of all the sheet names
 mysheetlist <- readxl::excel_sheets(path = here::here('data', 
-                                                      '2026',
-                                                      '2026_FIELDDATA.xlsx'))
+                                                      '2025',
+                                                      '2025_FIELDDATA.xlsx'))
 
 # Edit excel file name to match field data file name
 # create loop for the sheets
@@ -21,8 +21,8 @@ i = 1
 for (i in 1:length(mysheetlist)){
   
   tempdf <- readxl::read_excel(path = here::here('data', 
-                                                 '2026',
-                                                 '2026_FIELDDATA.xlsx'), 
+                                                 '2025',
+                                                 '2025_FIELDDATA.xlsx'), 
                                sheet = mysheetlist[i])
   
   tempdf$sheetname <- mysheetlist[i]
@@ -117,7 +117,8 @@ swmp_field <- env_wide %>%
                 DO_G_B, F_DO_G_B,
                 DO_B, F_DO_B,
                 pH_B, F_pH_B,
-                SECCHI, F_SECCHI
+                SECCHI, F_SECCHI,
+                Depth, F_Depth,
   )
 
 ## Rename field parameters
@@ -131,7 +132,9 @@ swmp_field <- swmp_field %>%
          DO_N = DO_B, 
          F_DO_N = F_DO_B,
          PH_N = pH_B, 
-         F_PH_N = F_pH_B
+         F_PH_N = F_pH_B,
+         TDEP_N = Depth,
+         F_TDEP_N = F_Depth
   )
 
 # inspect the data
@@ -188,6 +191,8 @@ CDMO_format_Final <- CDMO_format %>%
                 F_PH_N,
                 SECCHI,
                 F_SECCHI,
+                TDEP_N,
+                F_TDEP_N,
                 DOC,
                 F_DOC,
                 TOTALK, 
@@ -221,7 +226,7 @@ CDMO_format_Final <- as.data.frame(CDMO_format_Final)
 # careful, if running this code twice in the same day, you will get a warning 
 #  that a sheet of that name already exists. 
 # may need to delete sheet of same date if you ran into error
-write.csv(CDMO_format_Final, here::here('output', 'nut', 'data', 'gtmnut2026_wide.csv'), row.names = FALSE)
+write.csv(CDMO_format_Final, here::here('output', 'nut', 'data', 'gtmnut2025_wide.csv'), row.names = FALSE)
 
 # Output merged Excel file (if needed)
 # xlsx::write.xlsx(CDMO_format_Final, here::here('output', 'nut', 'data','gtmnut2023_wide.xlsx'),

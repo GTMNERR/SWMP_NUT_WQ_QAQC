@@ -27,4 +27,4 @@ View(mdl_range)
 rm(mdl_max, mdl_min)
 
 # Write as .csv file. Change file name to match yearly data file
-write.csv(mdl_range, here::here('output', 'nut', 'metadata', 'mdl_range_2026.csv'), row.names = FALSE)
+write.csv(mdl_range, here::here('output', 'nut', 'metadata', 'mdl_range_2025.csv'), row.names = FALSE)
